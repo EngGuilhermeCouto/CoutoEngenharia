@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Couto Empreendimentos Sustentáveis | Engenharia de Alto Padrão</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Engenharia Civil em Juazeiro do Norte. Projetos estruturais, gerenciamento de obras, consultoria e construção sustentável. CREA 376060 CE." />
+    <meta name="keywords" content="engenharia civil, projetos estruturais, construção, Juazeiro do Norte, Ceará, BIM, sustentabilidade" />
+    <link rel="canonical" href="https://engguilhermecouto.github.io/couto-site/" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,700&family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+               RESET E CONFIGURAÇÕES GERAIS
+               ============================================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f6f2;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============================================================
+               TIPOGRAFIA
+               ============================================================ */
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .text-gold {
+            color: #b8860b;
+        }
+        .text-gold-light {
+            color: #d4a843;
+        }
+        .bg-gold {
+            background: #b8860b;
+        }
+        .bg-gold-light {
+            background: #d4a843;
+        }
+        .bg-navy {
+            background: #0a1a2f;
+        }
+        .bg-cream {
+            background: #f8f6f2;
+        }
+        .bg-dark {
+            background: #111111;
+        }
+
+        /* ============================================================
+               BOTÕES
+               ============================================================ */
+        .btn-primary {
+            display: inline-block;
+            background: #b8860b;
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(184, 134, 11, 0.3);
+        }
+        .btn-primary:hover {
+            background: #a0750a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(184, 134, 11, 0.4);
+        }
+
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: #b8860b;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: 2px solid #b8860b;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background: #b8860b;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            display: inline-block;
+            background: #1a1a1a;
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-dark:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        /* ============================================================
+               NAVBAR
+               ============================================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 30px rgba(0, 0, 0, 0.08);
+            padding: 10px 0;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #b8860b;
+            text-decoration: none;
+        }
+        .navbar .logo span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: #b8860b;
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #b8860b;
+            transition: width 0.3s;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: #b8860b;
+        }
+
+        .nav-links .btn-primary {
+            padding: 10px 28px;
+            font-size: 13px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 28px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #1a1a1a;
+        }
+
+        /* ============================================================
+               HERO
+               ============================================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #0a1a2f 0%, #1a2a3f 100%);
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="%23d4a843" opacity="0.3"/><circle cx="80" cy="40" r="1.5" fill="%23d4a843" opacity="0.2"/><circle cx="50" cy="80" r="1" fill="%23d4a843" opacity="0.3"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            line-height: 1.1;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 .highlight {
+            color: #d4a843;
+        }
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+            max-width: 480px;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .hero-content .buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-image .badge {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 168, 67, 0.2);
+            border-radius: 20px;
+            padding: 40px 32px;
+            text-align: center;
+            max-width: 380px;
+            width: 100%;
+        }
+        .hero-image .badge img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #d4a843;
+            margin-bottom: 16px;
+        }
+        .hero-image .badge h3 {
+            color: #fff;
+            font-size: 22px;
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-image .badge p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 13px;
+        }
+        .hero-image .badge .crea {
+            color: #d4a843;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* ============================================================
+               SEÇÃO SOBRE
+               ============================================================ */
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .section-title .highlight {
+            color: #b8860b;
+        }
+        .section-subtitle {
+            color: #666;
+            font-size: 16px;
+            max-width: 560px;
+            margin-bottom: 40px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: #444;
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 24px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            margin-top: 8px;
+        }
+        .value-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        .value-card:hover {
+            border-color: #b8860b;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(184, 134, 11, 0.08);
+        }
+        .value-card .icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .value-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .value-card p {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+               SERVIÇOS
+               ============================================================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+            cursor: default;
+        }
+        .service-card:hover {
+            border-color: #b8860b;
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(184, 134, 11, 0.08);
+        }
+        .service-card .icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        .service-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        /* ============================================================
+               DIFERENCIAIS
+               ============================================================ */
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .diferenciais-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .diferenciais-list .item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            color: #222;
+        }
+        .diferenciais-list .item .check {
+            color: #b8860b;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .stat-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+        .stat-card:hover {
+            border-color: #b8860b;
+        }
+        .stat-card .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #b8860b;
+        }
+        .stat-card .label {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* ============================================================
+               PORTFÓLIO
+               ============================================================ */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .portfolio-item {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-6px);
+            border-color: #b8860b;
+            box-shadow: 0 12px 40px rgba(184, 134, 11, 0.08);
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+        .portfolio-item .info {
+            padding: 20px 24px 24px;
+        }
+        .portfolio-item .info h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        .portfolio-item .info p {
+            color: #666;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        /* ============================================================
+               SUSTENTABILIDADE
+               ============================================================ */
+        .sustentabilidade-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+        }
+        .sustentabilidade-item {
+            background: #fff;
+            border-radius: 16px;
+            padding: 24px 16px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+        .sustentabilidade-item:hover {
+            border-color: #b8860b;
+            transform: translateY(-4px);
+        }
+        .sustentabilidade-item .icon {
+            font-size: 32px;
+        }
+        .sustentabilidade-item h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 6px;
+        }
+
+        /* ============================================================
+               DEPOIMENTOS
+               ============================================================ */
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .depoimento-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 24px;
+            border: 1px solid #eee;
+            transition: 0.3s;
+        }
+        .depoimento-card:hover {
+            border-color: #b8860b;
+        }
+        .depoimento-card .stars {
+            color: #b8860b;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+        .depoimento-card .text {
+            font-size: 15px;
+            color: #333;
+            margin: 12px 0 16px;
+            font-style: italic;
+            line-height: 1.7;
+        }
+        .depoimento-card .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .depoimento-card .author img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .depoimento-card .author .name {
+            font-weight: 600;
+            font-size: 14px;
+        }
+        .depoimento-card .author .role {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* ============================================================
+               FAQ
+               ============================================================ */
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #eee;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .faq-item:hover {
+            border-color: #b8860b;
+        }
+        .faq-item .question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .faq-item .question .toggle {
+            color: #b8860b;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+        .faq-item .answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s;
+            color: #555;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        .faq-item.open .answer {
+            max-height: 300px;
+            padding-top: 12px;
+        }
+        .faq-item.open .toggle {
+            transform: rotate(45deg);
+        }
+
+        /* ============================================================
+               CONTATO
+               ============================================================ */
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contato-info p {
+            color: #444;
+            font-size: 16px;
+            line-height: 2.2;
+        }
+        .contato-info p .label {
+            font-weight: 600;
+            color: #b8860b;
+        }
+
+        .contato-form {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 36px;
+            border: 1px solid #eee;
+        }
+        .contato-form h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .contato-form input,
+        .contato-form textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: 0.3s;
+            background: #fafafa;
+            margin-bottom: 16px;
+            outline: none;
+        }
+        .contato-form input:focus,
+        .contato-form textarea:focus {
+            border-color: #b8860b;
+            box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+            background: #fff;
+        }
+        .contato-form textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .contato-form .btn-primary {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* ============================================================
+               MAPA
+               ============================================================ */
+        .mapa-wrapper {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            height: 220px;
+            margin-top: 20px;
+        }
+        .mapa-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ============================================================
+               RODAPÉ
+               ============================================================ */
+        .footer {
+            background: #0a1a2f;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 60px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #d4a843;
+        }
+        .footer .logo span {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: #d4a843;
+            opacity: 0.5;
+            font-weight: 500;
+        }
+        .footer h4 {
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .footer ul {
+            list-style: none;
+        }
+        .footer ul li {
+            margin-bottom: 8px;
+        }
+        .footer ul a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .footer ul a:hover {
+            color: #d4a843;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ============================================================
+               WHATSAPP FLUTUANTE
+               ============================================================ */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            z-index: 999;
+            background: #25d366;
+            border-radius: 60px;
+            padding: 14px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 15px;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+        }
+        .whatsapp-float svg {
+            width: 24px;
+            height: 24px;
+            fill: #fff;
+        }
+
+        /* ============================================================
+               RESPONSIVIDADE
+               ============================================================ */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-content .buttons {
+                justify-content: center;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .diferenciais-grid {
+                grid-template-columns: 1fr;
+            }
+            .contato-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 16px;
+                background: #fff;
+                padding: 24px;
+                border-radius: 16px;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+                position: absolute;
+                top: 70px;
+                right: 16px;
+                min-width: 200px;
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .section-title {
+                font-size: 30px;
+            }
+            .section {
+                padding: 56px 0;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .diferenciais-list {
+                grid-template-columns: 1fr;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .whatsapp-float {
+                padding: 10px 16px;
+                font-size: 13px;
+                bottom: 16px;
+                right: 16px;
+            }
+            .whatsapp-float span {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            .hero-image .badge {
+                padding: 24px 16px;
+            }
+            .hero-image .badge img {
+                width: 100px;
+                height: 100px;
+            }
+            .contato-form {
+                padding: 24px 16px;
+            }
+            .stat-card .number {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">
+                COUTO
+                <span>EMPREENDIMENTOS SUSTENTÁVEIS</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Projetos</a></li>
+                <li><a href="#diferenciais">Diferenciais</a></li>
+                <li><a href="#contato" class="btn-primary">Orçamento</a></li>
+            </ul>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+                ☰
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>
+                    Couto Engenharia concretizando<br />
+                    <span class="highlight">seus sonhos e projetos em</span> realidade.
+                </h1>
+                <p>
+                    Na Couto Empreendimentos Sustentáveis desenvolvemos soluções
+                    inteligentes em engenharia civil, combinando inovação,
+                    sustentabilidade, responsabilidade técnica e excelência construtiva.
+                </p>
+                <div class="buttons">
+                    <a href="#contato" class="btn-primary">Solicitar Orçamento</a>
+                    <a href="#sobre" class="btn-outline">Conhecer a Empresa</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="badge">
+                    <img src="images/PerfilEngGuilherme.png" alt="Eng. Guilherme R. Couto" />
+                    <h3>Eng. Guilherme R. Couto</h3>
+                    <p class="crea">CREA 376060 CE · RNP 0622612719</p>
+                    <p style="margin-top:8px; font-size:14px; color:rgba(255,255,255,0.6);">
+                        Especialista em projetos em BIM,<br />
+                        gerenciamento de obras, gestão, projetos complementares, perito judicial, regularização de imóveis e construção sustentável.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SOBRE
+    ============================================================ -->
+    <section class="section bg-cream" id="sobre">
+        <div class="container">
+            <span style="color:#b8860b; font-size:12px; letter-spacing:3px; font-weight:600; text-transform:uppercase;">Sobre Nós</span>
+            <h2 class="section-title">
+                Excelência na <span class="highlight">engenharia civil</span> e métodos construtivos tecnológicos inovadores
+            </h2>
+            <p class="section-subtitle">
+                Com mais de duas década de atuação, entregamos projetos que unem
+                técnica, estética e responsabilidade ambiental.
+            </p>
+
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        A <strong>Couto Empreendimentos Sustentáveis</strong> é uma
+                        empresa de engenharia civil focada em projetos de alto padrão,
+                        gerenciamento de obras, consultoria técnica e construção
+                        sustentável.
+                    </p>
+                    <p>
+                        Atuamos com tecnologia BIM, eficiência energética e materiais
+                        sustentáveis, garantindo qualidade, transparência e
+                        cumprimento de prazos em todos os nossos projetos.
+                    </p>
+
+                    <div class="values-grid">
+                        <div class="value-card">
+                            <div class="icon">★</div>
+                            <h4>Missão</h4>
+                            <p>Entregar soluções com inovação e compromisso socioambiental.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="icon">✦</div>
+                            <h4>Visão</h4>
+                            <p>Ser referência em engenharia de alto padrão no Brasil.</p>
+                        </div>
+                        <div class="value-card">
+                            <div class="icon">◆</div>
+                            <h4>Valores</h4>
+                            <p>Ética, transparência, sustentabilidade, inovação e excelência.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background:#fff; border-radius:20px; padding:32px 28px; border:1px solid #eee;">
+                    <h3 style="font-family:'Playfair Display',serif; font-size:24px; margin-bottom:12px;">
+                        Perfil do Engenheiro
+                    </h3>
+                    <p style="color:#444; font-size:15px; line-height:1.8;">
+                        <strong>Eng. Civil Guilherme R. Couto</strong> é especialista
+                        em projetos em BIM, gerenciamento de obras e construção
+                        sustentável. Atua com foco em tecnologia BIM, eficiência
+                        energética e inovação, sempre buscando a excelência em cada
+                        projeto.
+                    </p>
+                    <div style="margin-top:16px; padding-top:16px; border-top:1px solid #eee;">
+                        <p style="font-size:14px; color:#666;">
+                            <span style="font-weight:600; color:#b8860b;">CREA:</span> 376060 CE<br />
+                            <span style="font-weight:600; color:#b8860b;">RNP:</span> 0622612719
+                        </p>
+                    </div>
+                    <div style="margin-top:12px; font-family:'Playfair Display',serif; font-size:22px; color:#b8860b; font-style:italic;">
+                        — Guilherme R. Couto
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SERVIÇOS
+    ============================================================ -->
+    <section class="section" id="servicos" style="background:#fff;">
+        <div class="container">
+            <span style="color:#b8860b; font-size:12px; letter-spacing:3px; font-weight:600; text-transform:uppercase;">Serviços</span>
+            <h2 class="section-title">
+                Soluções completas em <span class="highlight">engenharia</span>
+            </h2>
+            <p class="section-subtitle">
+                Oferecemos uma ampla gama de serviços para atender todas as
+                necessidades do seu projeto.
+            </p>
+
+            <div class="services-grid">
+                <div class="service-card"><div class="icon">🏗️</div><h4>Projetos em BIM</h4></div>
+                <div class="service-card"><div class="icon">🏛️</div><h4>Projetos Arquitetônicos</h4></div>
+                <div class="service-card"><div class="icon">💧</div><h4>Projetos Hidrossanitários</h4></div>
+                <div class="service-card"><div class="icon">📋</div><h4>Gerenciamento de Obras</h4></div>
+                <div class="service-card"><div class="icon">🔍</div><h4>Fiscalização</h4></div>
+                <div class="service-card"><div class="icon">🚧</div><h4>Execução de Obras</h4></div>
+                <div class="service-card"><div class="icon">🏠</div><h4>Construção Residencial</h4></div>
+                <div class="service-card"><div class="icon">🏢</div><h4>Construção Comercial</h4></div>
+                <div class="service-card"><div class="icon">💡</div><h4>Consultoria Técnica</h4></div>
+                <div class="service-card"><div class="icon">📝</div><h4>Perícias e Laudos</h4></div>
+                <div class="service-card"><div class="icon">📊</div><h4>Avaliações</h4></div>
+                <div class="service-card"><div class="icon">✅</div><h4>Regularização</h4></div>
+                <div class="service-card"><div class="icon">🔧</div><h4>Reformas</h4></div>
+                <div class="service-card"><div class="icon">📐</div><h4>Modelagem BIM</h4></div>
+                <div class="service-card"><div class="icon">🌱</div><h4>Sustentabilidade</h4></div>
+                <div class="service-card"><div class="icon">📜</div><h4>Licenciamento</h4></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    DIFERENCIAIS + ESTATÍSTICAS
+    ============================================================ -->
+    <section class="section bg-cream" id="diferenciais">
+        <div class="container">
+            <span style="color:#b8860b; font-size:12px; letter-spacing:3px; font-weight:600; text-transform:uppercase;">Diferenciais</span>
+            <h2 class="section-title">
+                Por que <span class="highlight">Couto</span>?
+            </h2>
+            <p class="section-subtitle">
+                Nossos diferenciais garantem a excelência em cada projeto.
+            </p>
+
+            <div class="diferenciais-grid">
+                <div>
+                    <div class="diferenciais-list">
+                        <div class="item"><span class="check">✔</span> Atendimento Personalizado</div>
+                        <div class="item"><span class="check">✔</span> Responsabilidade Técnica</div>
+                        <div class="item"><span class="check">✔</span> Alto Padrão Executivo</div>
+                        <div class="item"><span class="check">✔</span> Engenharia Sustentável</div>
+                        <div class="item"><span class="check">✔</span> Projetos Inteligentes</div>
+                        <div class="item"><span class="check">✔</span> Transparência</div>
+                        <div class="item"><span class="check">✔</span> Cumprimento de Prazos</div>
+                        <div class="item"><span class="check">✔</span> Tecnologia BIM</div>
+                        <div class="item"><span class="check">✔</span> Excelência Construtiva</div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number" data-count="79">0</div>
+                        <div class="label">Projetos Executados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number" data-count="107">0</div>
+                        <div class="label">Clientes Atendidos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number" data-count="157">0</div>
+                        <div class="label">Consultorias</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number" data-count="22">0</div>
+                        <div class="label">Anos de Experiência</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PORTFÓLIO
+    ============================================================ -->
+    <section class="section" id="portfolio" style="background:#fff;">
+        <div class="container">
+            <span style="color:#b8860b; font-size:12px; letter-spacing:3px; font-weight:600; text-transform:uppercase;">Portfólio</span>
+            <h2 class="section-title">
+                Projetos <span class="highlight">em destaque</span>
+            </h2>
+            <p class="section-subtitle">
+                Conheça alguns dos nossos projetos mais recentes.
+            </p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/Projeto1.jpeg" alt="Residência Couto" />
+                    <div class="info">
+                        <h4>Residência Couto</h4>
+                        <p>Projeto Inovador em BIM e auto sustentável</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/WhatsApp Image 2026-05-01 at 11.02.15.jpeg" alt="Galpão Grupo Atacadista" />
+                    <div class="info">
+                        <h4>Projeto Comercial</h4>
+                        <p>Edificação comercial com eficiência energética</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Projeto3.jpeg" alt="Residência Auto Sustentável" />
+                    <div class="info">
+                        <h4>Residência Auto Sustentável</h4>
+                        <p>Construção com tecnologia e sistema Lean Construction</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/WhatsApp Image 2026-07-14 at 22.37.09.jpeg" alt="Residência Malzoni" />
+                    <div class="info">
+                        <h4>Residência Malzoni</h4>
+                        <p>Reforma de residência</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Projeto7.jpeg" alt="Lajes Protendidas" />
+                    <div class="info">
+                        <h4>Lajes Protendidas</h4>
+                        <p>Projeto com cordoalhas de protensão em laje com vão de 16 metros</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Projetos Arquitetônicos.jpeg" alt="Projetos Arquitetônicos" />
+                    <div class="info">
+                        <h4>Projetos Arquitetônicos</h4>
+                        <p>Seu projeto customizado do seu jeito, como você sempre sonhou</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Projetos em BIM.jpeg" alt="Projetos renderizados em 3D" />
+                    <div class="info">
+                        <h4>Projetos em 3D</h4>
+                        <p>Projetos em 3D, renderizados e compatibilizados com a metodoogia BIM</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Resid. Michael Groh.jpeg" alt="Residência Auto Sustentável" />
+                    <div class="info">
+                        <h4>Residência Groh</h4>
+                        <p>Residência com placas fotovoltáicas e com Estação de Tratamento de Esgoto (ETE) residencial</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/Resid. Placas Foto.jpeg" alt="Residência Azevedo" />
+                    <div class="info">
+                        <h4>Residência Groh</h4>
+                        <p>Residência com placas fotovoltáicas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SUSTENTABILIDADE
+    ============================================================ -->
+    <section class="section bg-navy" style="color:#fff;">
+        <div class="container">
+            <span style="color:#d4a843; font-size:12px; letter-spacing:3px; font-weight:600; text-transform:uppercase;">Sustentabilidade</span>
+            <h2 class="section-title" style="color:#fff;">
+                Compromisso com o <span style="color:#d4a843;">futuro</span>
+            </h2>
+            <p style="color:rgba(255,255,255,0.6); max-width:560px; margin-bottom:40px;">
+                Incorporamos práticas sustentáveis em todos os nossos projetos.
+            </p>
+
+            <div class="sustentabilidade-grid">
+                <div class="sustentabilidade-item" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08); color:#fff;">
+                    <div class="icon">☀️</div>
+                    <h4>Energia Limpa</h4>
+                </div>
+                <div class="sustentabilidade-item" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08); color:#fff;">
+                    <div class="icon">♻️</div>
+                    <h4>Redução de Resíduos</h4>
+                </div>
+                <div class="sustentabilidade-item" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08); color:#fff;">
+                    <div class="icon">🌱</div>
+                    <h4>Construção Consciente</h4>
+                </div>
+                <div class="sustentabilidade-item" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08); color:#fff;">
+                    <div class="icon">💡</div>
+                    <h4>Ferramentas tecnológicas e Inovadoreas</h4>
+                </div>
+                <div class="sustentabilidade-item" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08); color:#fff;">
+                    <div class="icon">🔬</div>
+                    <h4>Tecnologia Sustentável</h4>
+                </div>
+                <div class="sustentabilidade-item" style="background:rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.08); color:#fff;">
+                    <div class="icon">🌿</div>
+                    <h4>Materiais Verdes</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    DEPOIMENTOS
+    ============================================================ -->
+    <section class="section bg-cream">
+        <div class="container">
+            <span style="color:#b8860b; font-size:12px; letter-spacing:3px; font-weight:600; text-transform:uppercase;">Depoimentos</span>
+            <h2 class="section-title">
+                O que dizem <span class="highlight">nossos clientes</span>
+            </h2>
+
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="text">
+                        "A Couto entregou um projeto impecável, com tecnologia e
+                        sustentabilidade. Recomendo fortemente."
+                    </p>
+                    <div class="author">
+                        <img src="images/Alexandre Wilfred.png" alt="Alexandre Wilfred" />
+                        <div>
+                            <div class="name">Alexandre Wilfred</div>
+                            <div class="role">Diretor de Projetos</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="depoimento-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="text">
+                        "Profissionalismo e qualidade em cada etapa. A equipe da
+                        Couto é diferenciada."
+                    </p>
+                    <div class="author">
+                        <img src="images/Sergio Schelp.jpeg" alt="Ana P." />
+                        <div>
+                            <div class="name">Sergio Schelp</div>
+                            <div class="role">Diretor Comercial Nacional</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="depoimento-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="text">
+                        "Cumpriram todos os prazos e superaram nossas expectativas.
+                        Projeto sustentável e inovador."
+                    </p>
+                    <div class="author">
+                        <img src="images/Julio Pires.png" alt="Júlio Pires" />
+                        <div>
+                            <div class="name">Júlio Pires</div>
+                            <div class="role">Empresário</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    FAQ
+    ============================================================ -->
+    <section class="section" style="background:#fff;">
+        <div class="container">
+            <span style="color:#b8860b; font-size:12px; letter-spacing:3px; font-weight:600; text-transform:uppercase;">FAQ</span>
+            <h2 class="section-title">
+                Perguntas <span class="highlight">frequentes</span>
+            </h2>
+
+            <div style="max-width:760px; margin-top:32px;">
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="question">
+                        <span>Como solicitar um orçamento?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="answer">
+                        Entre em contato pelo formulário ou WhatsApp, e nossa equipe
+                        fará uma análise detalhada da sua solicitação.
+                    </div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="question">
+                        <span>Quais os prazos médios de entrega?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="answer">
+                        Os prazos variam conforme a complexidade do projeto.
+                        Garantimos cumprimento rigoroso do cronograma.
+                    </div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="question">
+                        <span>A empresa atua em todo o Brasil?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="answer">
+                        Sim, atendemos projetos em todo território nacional, com
+                        foco especial no Ceará, especialmente na região do Cariri
+                        e capital, bem como em todo o Nordeste.
+                    </div>
+                </div>
+                <div class="faq-item" onclick="this.classList.toggle('open')">
+                    <div class="question">
+                        <span>Como é feito o gerenciamento de obras?</span>
+                        <span class="toggle">+</span>
+                    </div>
+                    <div class="answer">
+                        Utilizamos metodologia BIM e acompanhamento diário para
+                        garantir qualidade e transparência em todas as etapas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    CONTATO
+    ============================================================ -->
+    <section class="section bg-cream" id="contato">
+        <div class="container">
+            <span style="color:#b8860b; font-size:12px; letter-spacing:3px; font-weight:600; text-transform:uppercase;">Contato</span>
+            <h2 class="section-title">
+                Vamos <span class="highlight">conversar</span>
+            </h2>
+
+            <div class="contato-grid">
+                <div class="contato-info">
+                    <p>
+                        <span class="label">📍</span> Couto Empreendimentos Sustentáveis Ltda<br />
+                        <span class="label">📞</span> (88) 99747-5480 / (85) 99616-8323<br />
+                        <span class="label">✉</span> engenhariacivil.couto@gmail.com<br />
+                        <span class="label">👤</span> Eng. Civil Guilherme R. Couto<br />
+                        <span style="color:#b8860b;">CREA 376060 CE · RNP 0622612719</span>
+                    </p>
+
+                    <div class="mapa-wrapper">
+                        <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.8!2d-39.3!3d-7.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMTInMDAuMCJTIDM5wrAxOCcwMC4wIlc!5e0!3m2!1spt-BR!2sbr!4v1620000000000"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="contato-form">
+                <h3>Envie sua mensagem</h3>
+                <form>
+                    <input type="text" placeholder="Nome" required />
+                    <input type="tel" placeholder="Telefone" required />
+                    <input type="email" placeholder="Email" required />
+                    <textarea placeholder="Mensagem" required></textarea>
+                    <button type="submit" class="btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+RODAPÉ
+============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="logo">
+                    COUTO
+                    <span>EMPREENDIMENTOS SUSTENTÁVEIS</span>
+                </div>
+                <p style="margin-top:12px; font-size:14px; max-width:280px;">
+                    Engenharia, inovação e sustentabilidade para construir o futuro.
+                </p>
+            </div>
+            <div>
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#portfolio">Projetos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Serviços</h4>
+                <ul>
+                    <li><a href="#servicos">Projetos</a></li>
+                    <li><a href="#servicos">Gerenciamento</a></li>
+                    <li><a href="#servicos">Consultoria</a></li>
+                    <li><a href="#servicos">Construção</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="tel:+5588997475480">(88) 99747-5480</a></li>
+                    <li><a href="mailto:engenhariacivil.couto@gmail.com">engenhariacivil.couto@gmail.com</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Couto Empreendimentos Sustentáveis Ltda. Todos os direitos reservados.
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+WHATSAPP FLUTUANTE
+============================================================ -->
+<a href="https://wa.me/5588997475480" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>Fale conosco</span>
+</a>
+
+<!-- ============================================================
+SCRIPTS
+============================================================ -->
+<script>
+    // ============================================================
+    // NAVBAR SCROLL
+    // ============================================================
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // ============================================================
+    // MOBILE TOGGLE
+    // ============================================================
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+
+    // Fechar menu ao clicar em um link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+        });
+    });
+
+    // ============================================================
+    // CONTADORES ANIMADOS
+    // ============================================================
+    const counters = document.querySelectorAll('.stat-card .number');
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const target = parseInt(el.dataset.count, 10);
+                let current = 0;
+                const increment = Math.ceil(target / 45);
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        el.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        el.textContent = current;
+                    }
+                }, 25);
+
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.4 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
+    // ============================================================
+    // FECHAR FAQ AO CLICAR FORA
+    // ============================================================
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+            // Fecha os outros itens
+            document.querySelectorAll('.faq-item').forEach(other => {
+                if (other !== this) {
+                    other.classList.remove('open');
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
